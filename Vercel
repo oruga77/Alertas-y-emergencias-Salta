@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alertas y Emergencias Salta</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #d32f2f;
+    }
+    .btn {
+      display: block;
+      margin: 1rem auto;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      color: white;
+      background-color: #c62828;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn.sms {
+      background-color: #f57c00;
+    }
+    .info {
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Alertas y Emergencias Salta</h1>
+
+  <button class="btn" onclick="window.location.href='tel:911'">
+    Llamar al 911
+  </button>
+
+  <button class="btn sms" onclick="enviarSMS()">
+    Enviar SMS de emergencia
+  </button>
+
+  <div class="info">
+    Si no tienes señal para llamadas, intenta enviar un SMS con tu ubicación actual.
+  </div>
+
+  <script>
+    function enviarSMS() {
+      const numero = '3878809331';
+      const mensaje = encodeURIComponent("EMERGENCIA - Necesito ayuda urgente. Mi ubicación es: " + window.location.href);
+      window.location.href = `sms:${numero}?&body=${mensaje}`;
+    }
+  </script>
+</body>
+</html>
